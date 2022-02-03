@@ -31,3 +31,4 @@ function process() {
 }
 
 // No need to call function because it is already called in "onclick"
+// Important lesson: Truth Tests

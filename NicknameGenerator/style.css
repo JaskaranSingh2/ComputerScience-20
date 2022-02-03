@@ -1,0 +1,12 @@
+* {
+	font-family: sans-serif;
+}
+input {
+	width: 100px;
+}
+span {
+	padding: 10px;
+}
+button {
+	margin: 5px;
+}
