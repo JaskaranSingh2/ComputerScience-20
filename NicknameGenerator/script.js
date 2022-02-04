@@ -6,14 +6,17 @@ const randomUser = document.getElementById("rand"); // random nickname button
 randomUser.addEventListener("click", chooseRandomNickName);
 
 function chooseRandomNickName() {
-	// Make sure it is cleared
-	showNickName.innerHTML = "";
 	// gets first and last name value
 	// (have to put it in both functions because we want value on click)
 	let input1 = document.getElementById("first").value;
 	let input2 = document.getElementById("last").value;
+
 	// to show on HTML
 	let showNickName = document.getElementById("showNickName");
+
+	// Make sure it is cleared
+	showNickName.innerHTML = "";
+
 	// function for random nick name
 	if (input1 === "" || input2 === "") {
 		alert("Input is not filled in");
@@ -30,13 +33,17 @@ allUser.addEventListener("click", chooseAllNickNames);
 // function for all usernames
 
 function chooseAllNickNames() {
-	// to show on HTML
-	let showNickName = document.getElementById("showNickName");
-	// Make sure it is cleared
-	showNickName.innerHTML = "";
 	// gets first and last name value
+	// (have to put it in both functions because we want value on click)
 	let input1 = document.getElementById("first").value;
 	let input2 = document.getElementById("last").value;
+
+	// to show on HTML
+	let showNickName = document.getElementById("showNickName");
+
+	// Make sure it is cleared
+	showNickName.innerHTML = "";
+
 	if (input1 === "" || input2 === "") {
 		alert("Input is not filled in");
 	} else {
