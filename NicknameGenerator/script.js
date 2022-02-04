@@ -17,7 +17,6 @@ function chooseRandomNickName() {
 	// Make sure it is cleared
 	showNickName.innerHTML = "";
 
-	// function for random nick name
 	if (input1 === "" || input2 === "") {
 		alert("Input is not filled in");
 	} else {
