@@ -1,21 +1,19 @@
-// button grabbers
-const randomUser = document.getElementById("rand");
-const allUser = document.getElementById("all");
-
-// gets first and last name value
-let input1 = document.getElementById("first").value;
-let input2 = document.getElementById("last").value;
-
-// names array
+// array of names
 let names = ["Flash", "Dimes", "The Prez", "Che", "Splash", "Sparkles"];
 
 // Event Listener for random username option
+const randomUser = document.getElementById("rand"); // random nickname button
 randomUser.addEventListener("click", chooseRandomNickName);
 
 function chooseRandomNickName() {
-	// Shows on HTML
+	// Make sure it is cleared
+	showNickName.innerHTML = "";
+	// gets first and last name value
+	// (have to put it in both functions because we want value on click)
+	let input1 = document.getElementById("first").value;
+	let input2 = document.getElementById("last").value;
+	// to show on HTML
 	let showNickName = document.getElementById("showNickName");
-	showNickName.innerHTML = ""; // Make sure it is cleared
 	// function for random nick name
 	if (input1 === "" || input2 === "") {
 		alert("Input is not filled in");
@@ -26,12 +24,19 @@ function chooseRandomNickName() {
 }
 
 // Event Listener for all usernames option
-allUser.addEventListener("click", allUserNames);
+const allUser = document.getElementById("all"); // all nicknames button
+allUser.addEventListener("click", chooseAllNickNames);
 
 // function for all usernames
 
-function allUserNames() {
-	showNickName.innerHTML = ""; // Make sure it is cleared
+function chooseAllNickNames() {
+	// to show on HTML
+	let showNickName = document.getElementById("showNickName");
+	// Make sure it is cleared
+	showNickName.innerHTML = "";
+	// gets first and last name value
+	let input1 = document.getElementById("first").value;
+	let input2 = document.getElementById("last").value;
 	if (input1 === "" || input2 === "") {
 		alert("Input is not filled in");
 	} else {
