@@ -23,7 +23,7 @@ function process() {
 	}
 
 	// Condition for 'if not found':
-	// Exclamation mark inverses boolean value, basically meant "not" as in not operator
+	// Exclamation mark inverses boolean value, basically meant "not" as in 'not' operator
 	// if 'not found in array'
 	if (!foundInArray) {
 		reportInHTML.innerHTML = "NOT FOUND";
