@@ -5,6 +5,7 @@ let ctx = canvas.getContext("2d");
 screenWidth = screen.width - 50;
 canvas.width = screenWidth;
 canvas.height = 600;
+middle = screenWidth / 2;
 
 // Grabs the HTML button element and is referred to as: "whenButtonClicked"
 let whenButtonClicked = document.getElementById("whenClicked");
@@ -14,50 +15,71 @@ let selectionToggle = document.getElementById("toggle");
 // The addEventListener for when the button is clicked, to run the function 'draw()'
 whenButtonClicked.addEventListener("click", draw);
 
-/*
-Whereas:
-The star is centered around a circle with a radius [r]
-at point (xCirc,yCirc)
-and [n] refers to the number of outer spikes.
-r/2 is the radius of the inner points
-n*2 is the number of total points */
+/* Star is centered around circle with radius [r] at point (xCirc,yCirc)
+[n] refers to the number of outer spikes. */
+function drawStar(r, xCirc, yCirc, n, colour) {
+	// Required variables:
 
-function drawStar(r, xCirc, yCirc, n) {
-  // Required variables:
+	/* first point is radius plus where the star is centered at, 
+  yCirc (y-point) remains the same */
+	let firstXPoint = xCirc + r;
+	let N = 2 * n; // total number of points
+	let twoPi = Math.PI * 2;
+	let cos = Math.cos;
+	let sin = Math.sin;
 
-  /* we add the x-point the circle is centered at (xCirc), to R
-  because we know that the first point on the circle is a direct horizontal translation
-  therefore the y-point on the firstPoint remains the same, therefore: 
-  the first point on the star is = (firstPoint, yCirc) */
+	// begin drawing the star:
+	ctx.beginPath();
+	ctx.moveTo(firstXPoint, yCirc); // Move it to the first (outer) point (pt. 0)
 
-  let firstPoint = xCirc + r;
-  let N = 2 * n; // total number of points
-  let twoPi = Math.PI * 2;
-  let cos = Math.cos;
-  let sin = Math.sin;
-  x = cos(angle) * r + xCirc; // Have to add the horizontal translation
-  y = sin(angle) * r + yCirc; // Have to add the vertical translation
+	// locating the rest of the points, starting at point 1 until it is equal to N:
+	for (let i = 1; i <= N; i++) {
+		if (i % 2 == 0) {
+			/* divide angle equally amongst N points, then multiply it by [i] as [i] refers
+      to the point number AND the multiples of the angles. If the point is zero, angle is zero */
+			let angle = (twoPi / N) * i;
+			x = cos(angle) * r + xCirc; // + horizontal translation
+			y = sin(angle) * r + yCirc; // + vertical translation
+		} else {
+			let angle = (twoPi / N) * i;
+			// dividing r means it's the inner point
+			x = cos(angle) * (r / 1.8) + xCirc; // + horizontal translation
+			y = sin(angle) * (r / 1.8) + yCirc; // + vertical translation
+		}
+		ctx.lineTo(x, y);
+	}
+	ctx.closePath();
+	ctx.strokeStyle = colour;
+	ctx.lineWidth = 2;
+	ctx.stroke();
+}
 
-  // begin drawing the star:
-  ctx.beginPath();
-  ctx.moveTo(firstPoint, yCirc); // Move it to the first point
-
-  // drawing the rest of the points, starting at point zero:
-  for (let i = 0; i < N; i++) {
-    if (i % 2 == 0) {
-      let angle = (twoPi / N) * i;
-      /* divide angle equally amongst N points, then multiply it by [i] as [i] refers
-      to the point number AND the multiples of the angles. */
-    }
-  }
+function drawPlatform(colour1, colour2, width1, width2, startPt, endPt) {
+	ctx.strokeStyle = colour1;
+	ctx.lineWidth = width1;
+	ctx.beginPath();
+	ctx.moveTo(startPt, 300);
+	ctx.lineTo(endPt, 300);
+	ctx.stroke();
+	ctx.strokeStyle = colour2;
+	ctx.linewidth = width2;
+	ctx.beginPath();
+	ctx.moveTo(startPt, 300 + width1);
+	ctx.lineTo(endPt, 300 + width1);
+	ctx.stroke();
 }
 
 function draw() {
-  // Grabs value of the toggle 'selection'.
-  // Inside the function because we want the value when we click it
-  let selectionToggleValue = selectionToggle.value;
-  if (selectionToggleValue === "Stars") {
-  } else if (selectionToggleValue === "Platforms") {
-    console.log(2);
-  }
+	// Grabs value of the toggle 'selection'.
+	// Inside the function because we want the value when we click it
+	let selectionToggleValue = selectionToggle.value;
+	if (selectionToggleValue === "Stars") {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		drawStar(100, screenWidth / 2, 300, 5, "red");
+		drawStar(150, screenWidth / 2 + 300, 300, 7, "blue");
+		drawStar(80, screenWidth / 2 - 300, 300, 15, "orange");
+	} else if (selectionToggleValue === "Platforms") {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		drawPlatform("green", "brown", 100, 50, middle, middle + 50);
+	}
 }
