@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pythagorean Theorem</title>
+		<h1>
+			Calculate the length of each side (in units) of a right triangle with at
+			least two known sides!
+		</h1>
+	</head>
+	<body>
+		<image src="triangle.png"></image>
+		<br />
+		<br />
+		<div id="first">
+			<p>Side A:</p>
+			<input type="text" id="sideA" />
+		</div>
+		<div id="second">
+			<p>Side B:</p>
+			<input type="text" id="sideB" />
+		</div>
+		<div id="third">
+			<p>Side C:</p>
+			<input type="text" id="sideC" />
+		</div>
+	</body>
+	<style>
+		* {
+			font-family: Helvetica, Arial, sans-serif;
+		}
+		div {
+			display: grid;
+			grid-template-columns: auto auto; /* setup two columns using this [vertical] */
+			grid-row-gap: 10px; /* set the gaps between the rows [rows are horizontal] */
+			grid-column-gap: 0px; /* set the gaps between the columns [columns are vertical] */
+		}
+		input {
+			margin-top: 12px;
+			margin-left: -320px;
+			width: 200px;
+			height: 20px;
+		}
+	</style>
+	<script src="script.js"></script>
+</html>

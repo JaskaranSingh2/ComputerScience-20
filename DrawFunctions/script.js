@@ -1,4 +1,4 @@
-// final.
+// sync
 // use "==="!
 // CTX Elements
 let canvas = document.getElementById("canva");
