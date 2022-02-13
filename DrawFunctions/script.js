@@ -1,3 +1,4 @@
+// final!
 // use "==="!
 // CTX Elements
 let canvas = document.getElementById("canva");
@@ -27,9 +28,7 @@ function drawStar(r, xCirc, yCirc, n, colour) {
 	let twoPi = Math.PI * 2;
 	let cos = Math.cos;
 	let sin = Math.sin;
-
-	// begin drawing the star:
-	ctx.beginPath();
+	d;
 	ctx.moveTo(firstXPoint, yCirc); // Move it to the first (outer) point (pt. 0)
 
 	// locating the rest of the points, starting at point 1 until it is equal to N:
