@@ -1,4 +1,4 @@
-// final
+// final.
 // use "==="!
 // CTX Elements
 let canvas = document.getElementById("canva");
