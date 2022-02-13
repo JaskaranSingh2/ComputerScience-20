@@ -28,11 +28,14 @@ function drawStar(r, xCirc, yCirc, n, colour) {
 	let twoPi = Math.PI * 2;
 	let cos = Math.cos;
 	let sin = Math.sin;
+
+	// begin drawing the star:
+	ctx.beginPath();
 	ctx.moveTo(firstXPoint, yCirc); // Move it to the first (outer) point (pt. 0)
 
 	// locating the rest of the points, starting at point 1 until it is equal to N:
 	for (let i = 1; i <= N; i++) {
-		if (i % 2 === 0) {
+		if (i % 2 == 0) {
 			/* divide angle equally amongst N points, then multiply it by [i] as [i] refers
       to the point number AND the multiples of the angles. If the point is zero, angle is zero */
 			let angle = (twoPi / N) * i;
