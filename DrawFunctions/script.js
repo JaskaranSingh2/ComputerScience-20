@@ -34,7 +34,7 @@ function drawStar(r, xCirc, yCirc, n, colour) {
 
 	// locating the rest of the points, starting at point 1 until it is equal to N:
 	for (let i = 1; i <= N; i++) {
-		if (i % 2 == 0) {
+		if (i % 2 === 0) {
 			/* divide angle equally amongst N points, then multiply it by [i] as [i] refers
       to the point number AND the multiples of the angles. If the point is zero, angle is zero */
 			let angle = (twoPi / N) * i;
@@ -54,18 +54,26 @@ function drawStar(r, xCirc, yCirc, n, colour) {
 	ctx.stroke();
 }
 
-function drawPlatform(colour1, colour2, width1, width2, startPt, endPt) {
+function drawPlatform(
+	colour1,
+	colour2,
+	width1,
+	width2,
+	startPt,
+	endPt,
+	height
+) {
 	ctx.strokeStyle = colour1;
 	ctx.lineWidth = width1;
 	ctx.beginPath();
-	ctx.moveTo(startPt, 300);
-	ctx.lineTo(endPt, 300);
+	ctx.moveTo(startPt, height);
+	ctx.lineTo(endPt, height);
 	ctx.stroke();
 	ctx.strokeStyle = colour2;
-	ctx.linewidth = width2;
+	ctx.lineWidth = width2;
 	ctx.beginPath();
-	ctx.moveTo(startPt, 300 + width1);
-	ctx.lineTo(endPt, 300 + width1);
+	ctx.moveTo(startPt, height + width1);
+	ctx.lineTo(endPt, height + width1);
 	ctx.stroke();
 }
 
@@ -80,6 +88,8 @@ function draw() {
 		drawStar(80, screenWidth / 2 - 300, 300, 15, "orange");
 	} else if (selectionToggleValue === "Platforms") {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		drawPlatform("green", "brown", 100, 50, middle, middle + 50);
+		drawPlatform("green", "brown", 30, 40, middle - 300, middle + 300, 300);
+		drawPlatform("red", "blue", 40, 60, middle - 300, middle + 300, 200);
+		drawPlatform("pink", "lightgrey", 28, 35, middle - 300, middle + 300, 400);
 	}
 }
