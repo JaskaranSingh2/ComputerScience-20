@@ -14,34 +14,42 @@
 		<image src="triangle.png"></image>
 		<br />
 		<br />
-		<div id="first">
-			<p>Side A:</p>
-			<input type="text" id="sideA" />
-		</div>
-		<div id="second">
-			<p>Side B:</p>
-			<input type="text" id="sideB" />
-		</div>
-		<div id="third">
-			<p>Side C:</p>
-			<input type="text" id="sideC" />
-		</div>
+
+		<span>Side A: <input type="text" id="legA" /></span>
+		<br />
+		<span>Side B: <input type="text" id="legB" /></span>
+		<br />
+		<span>Side C: <input type="text" id="hypC" /></span>
+
+		<button id="confirm">Ok</button>
+
+		<h1 id="return"></h1>
 	</body>
 	<style>
 		* {
 			font-family: Helvetica, Arial, sans-serif;
 		}
-		div {
-			display: grid;
-			grid-template-columns: auto auto; /* setup two columns using this [vertical] */
-			grid-row-gap: 10px; /* set the gaps between the rows [rows are horizontal] */
-			grid-column-gap: 0px; /* set the gaps between the columns [columns are vertical] */
+		h1 {
+			text-align: center;
+		}
+		span {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 10px;
 		}
 		input {
-			margin-top: 12px;
-			margin-left: -320px;
-			width: 200px;
-			height: 20px;
+			margin-left: 10px;
+		}
+		img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		button {
+			margin-top: 30px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	</style>
 	<script src="script.js"></script>
