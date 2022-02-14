@@ -1,3 +1,4 @@
+// final
 // HTML elements
 
 let sideA = document.getElementById("legA");
