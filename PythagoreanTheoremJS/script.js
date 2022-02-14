@@ -3,7 +3,6 @@
 let sideA = document.getElementById("legA");
 let sideB = document.getElementById("legB");
 let sideC = document.getElementById("hypC");
-// The '+' returns the numerical representation of the value
 
 // Button:
 let confirmB = document.getElementById("confirm");
