@@ -33,7 +33,7 @@ function pythagoreanTheorem(a, b, c) {
 	let sides = [a, b, c];
 
 	/* shorthanded function that has a parameter and 
-    presumes everything after is returned (true of false in this case) */
+    presumes everything after is returned (true or false in this case) */
 
 	// special conditions
 	let isInputted = (abORc) => abORc > 0;
