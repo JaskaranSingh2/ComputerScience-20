@@ -15,51 +15,67 @@ function line(colour, sX, sY, eX, eY, lW) {
 	ctx.moveTo(sX, sY); // start
 	ctx.lineTo(eX, eY); // end
 	ctx.stroke();
+	ctx.closePath();
 }
-
-/*
-Call function
-line("blue", 100, 100, 300, 300, 10);
-line("red", 1000, 1000, 400, 400, 1);
-*/
 
 // ------------------------------------------------------------------
 
 // draw rectangle (filled or stroked)
-function rect(x, y, w, h, style, colour) {
+function rect(x, y, w, h, style, colour, lW) {
 	if (style == "fill") {
 		ctx.fillStyle = colour;
 		ctx.fillRect(x, y, w, h); // fill rectangle
 	} else if (style == "stroke") {
+		ctx.lineWidth = lW;
 		ctx.strokeStyle = colour;
 		ctx.strokeRect(x, y, w, h); // stroke rectangle
 	}
 }
 
-/*
-Call function
-line("blue", 100, 100, 300, 300, 10);
-rect(300, 300, 600, 200, "fill", "orange");
-rect(300, 500, 600, 200, "stroke", "black");
-*/
-
 // ------------------------------------------------------------------
 
 // draw circle
 // counterC is counter-clockwise: default is false --> indicates clockwise
-function circ(x, y, r, sAng, eAng, counterC, style, colour) {
+function circ(x, y, r, sAng, eAng, style, colour, lW, counterC) {
+	ctx.beginPath(); // begin path
+	ctx.arc(x, y, r, sAng, eAng, counterC);
 	if (style == "fill") {
-		ctx.fill();
-        ctx.fillStyle() = colour; // fill circle
-		ctx.arc(x, y, r, sAng, eAng, counterC);
+		ctx.fillStyle = colour; // fill colour
+		ctx.fill(); // fill circle
 	} else if (style == "stroke") {
-		ctx.stroke();
-        ctx.strokeStyle = colour;
-		ctx.arc(x, y, r, sAng, eAng, counterC);
+		ctx.lineWidth = lW;
+		ctx.strokeStyle = colour; // outline colour
+		ctx.stroke(); // stroke/outline circle
 	}
 }
 
-line("blue", 100, 100, 300, 300, 10);
-rect(300, 300, 600, 200, "fill", "orange");
-rect(300, 500, 600, 200, "stroke", "black");
-circ(300, 400, 100, 0, 2 * Math.PI, false, "stroke", "red");
+// ------------------------------------------------------------------
+
+// draw triangle
+function triangle(x1, y1, x2, y2, x3, y3, style, colour, lW) {
+	ctx.beginPath();
+	ctx.moveTo(x1, y1);
+	ctx.lineTo(x2, y2);
+	ctx.lineTo(x3, y3);
+	if (style == "fill") {
+		ctx.fillStyle = colour;
+		ctx.fill();
+	} else if (style == "stroke") {
+		ctx.lineWidth = lW;
+		ctx.strokeStyle = colour;
+		ctx.closePath();
+		ctx.stroke();
+	}
+}
+
+// ------------------------------------------------------------------
+
+// write text
+function text(font, msg, x, y, style) {
+	ctx.font = font;
+	if (style == "fill") {
+		ctx.fillText(msg, x, y);
+	} else if (style == "stroke") {
+		ctx.strokeText(msg, x, y);
+	}
+}

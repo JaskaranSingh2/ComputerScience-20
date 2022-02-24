@@ -1,0 +1,10 @@
+line("blue", 100, 100, 200, 100, 10);
+line("orange", 250, 100, 350, 100, 5);
+rect(500, 500, 500, 250, "fill", "lightblue");
+rect(300, 200, 350, 250, "stroke", "lightgrey");
+circ(50, 100, 20, 0, 2 * Math.PI, "fill", "red");
+circ(100, 150, 30, 0, 2 * Math.PI, "stroke", "purple", 5, false);
+triangle(100, 400, 400, 400, 350, 450, "fill", "lightgreen");
+triangle(100, 600, 300, 600, 250, 650, "stroke", "pink", 3);
+text("24px Arial", "Epic", 500, 100, "fill");
+text("24px Serif", "Based", 800, 100, "fill");
