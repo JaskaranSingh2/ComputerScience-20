@@ -16,7 +16,7 @@ requestAnimationFrame(animate);
 
 function animate() {
 	fill("blue");
-	circle(bubble.x, bubble.y, buubl);
+	circ(bubble.x, bubble.y, bubble.r);
 	requestAnimationFrame(animate);
 	// We add this at the end of the function so that it loops through
 }
