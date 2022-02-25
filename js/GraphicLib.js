@@ -71,11 +71,43 @@ function triangle(x1, y1, x2, y2, x3, y3, style, colour, lW) {
 // ------------------------------------------------------------------
 
 // write text
-function text(font, msg, x, y, style) {
+function text(font, msg, x, y, style, colour) {
 	ctx.font = font;
 	if (style == "fill") {
+		ctx.fillStyle = colour;
 		ctx.fillText(msg, x, y);
 	} else if (style == "stroke") {
+		ctx.strokeStyle = colour;
 		ctx.strokeText(msg, x, y);
 	}
 }
+
+// ------------------------------------------------------------------
+
+// draw ellipse
+function ellipse(x, y, xR, yR, rotation, sAng, eAng, style, colour, lW) {
+	ctx.beginPath();
+	ctx.ellipse(x, y, xR, yR, rotation, sAng, eAng);
+	if (style == "fill") {
+		ctx.fillStyle = colour;
+		ctx.fill();
+	} else if (style == "stroke") {
+		ctx.lineWidth = lW;
+		ctx.strokeStyle = colour;
+		ctx.stroke();
+	}
+}
+// ------------------------------------------------------------------
+
+/*
+Draw Image
+let imgEl = document.createElement("img");
+imgEl.src = "download.jpg";
+window.addEventListener("load", draw);
+function draw() {
+	ctx.drawImage(imgEl, 200, 400, 100, 100);
+	ctx.drawImage(imgEl, 50, 50, 100, 200);
+}
+*/
+
+// didn't do Image Clip
