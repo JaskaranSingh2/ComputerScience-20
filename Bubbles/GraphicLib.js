@@ -5,6 +5,11 @@ let ctx = cnv.getContext("2d");
 cnv.width = screen.width - 20;
 cnv.height = screen.height - 123;
 
+// Canvas Width and Height
+ctx.canvas.width = window.innerWidth;
+ctx.canvas.height = window.innerHeight;
+//
+
 // ------------------------------------------------------------------
 
 // draw line
