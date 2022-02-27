@@ -9,7 +9,3 @@ body {
 	display: block;
 	/* No floating content on sides */
 }
-
-canvas {
-	border: 3px dotted darkgrey;
-}

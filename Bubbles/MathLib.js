@@ -1,3 +1,5 @@
+// Math Library
+
 // 'high' number is exclusive
 function randomInt(low, high) {
 	return Math.floor(Math.random() * (high - low) + low);
