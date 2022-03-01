@@ -28,10 +28,8 @@ function multipleBallObjectArray(n) {
     return arrayOfSnowBalls;
 }
 
-function draw() {
-    for (let i = 0; i < multipleBallObjectArray(5).length; i++) {
-        circ(multipleBallObjectArray(5)[i].this.x, multipleBallObjectArray(5)[i].this.y, multipleBallObjectArray(5)[i].this.r, 0, 2 * Math.PI, "fill", "black");
+function draw(specificBall) {
+    for (let i = 0; i < specificBall.length; i++) {
+        circ(specificBall.x, specificBall.y, specificBall.r, 0, 2 * Math.PI, "fill", "black");
     }
 }
-
-draw();
