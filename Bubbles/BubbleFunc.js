@@ -15,7 +15,7 @@ function newPushBubProp() {
 function randBubArr(n) {
 	// empty array that we push random bubbles into
 	let objects = [];
-	for (let i = 0; i <= n; i++) {
+	for (let i = 0; i < n; i++) {
 		objects.push(newPushBubProp());
 	}
 	console.log(objects);
