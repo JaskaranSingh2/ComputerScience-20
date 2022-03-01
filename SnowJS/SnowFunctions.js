@@ -19,7 +19,7 @@ class BallProperties {
 function randomizeProperties() {
     return new BallProperties(randomInt(0, cnv.width), randomInt(0, 15));
 }
-
+console.log(randomizeProperties())
 function multipleBallObjectArray(n) {
     arrayOfSnowBalls = [];
     for (let i = 0; i < n; i++) {
