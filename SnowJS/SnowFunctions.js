@@ -6,8 +6,14 @@ let ctx = cnv.getContext("2d");
 cnv.width = window.innerWidth;
 cnv.height = window.innerHeight;
 
-// Create and return the properties of the ball
+window.addEventListener("resize", windowResize);
 
+function windowResize() {
+	cnv.width = window.innerWidth;
+	cnv.height = window.innerHeight;
+}
+
+// Create and return the properties of the ball
 class BallProperties {
 	constructor(x, y, r, xV, yV) {
 		this.x = x;
