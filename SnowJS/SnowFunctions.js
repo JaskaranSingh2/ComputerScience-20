@@ -31,7 +31,7 @@ function multipleBallObjectArray(n) {
 			new BallProperties(
 				randomInt(0, cnv.width),
 				randomInt(0, cnv.height),
-				randomInt(2, 10),
+				randomInt(4, 10),
 				randomInt(-2, 3),
 				randomInt(6, 10)
 			)
@@ -59,8 +59,8 @@ function move(specificBall) {
 		if ((specificBall[i].x >= cnv.width) | (specificBall[i].y >= cnv.height)) {
 			specificBall[i].x = randomInt(0, cnv.width);
 			specificBall[i].y = randomInt(0, 15);
-			specificBall[i].xVelocity = randomInt(-4, 6);
-			specificBall[i].yVelocity = randomInt(5, 12);
+			specificBall[i].xVelocity = randomInt(-4, 4);
+			specificBall[i].yVelocity = randomInt(5, 10);
 		} else {
 			specificBall[i].x += specificBall[i].xVelocity;
 			specificBall[i].y += specificBall[i].yVelocity;
