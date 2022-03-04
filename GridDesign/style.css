@@ -1,0 +1,22 @@
+* {
+	font-family: sans-serif;
+}
+
+#container {
+	width: 500px;
+}
+
+#container div {
+	width: 48px;
+	height: 48px;
+	border: 1px solid black;
+	float: left;
+}
+
+.grey {
+	background-color: grey;
+}
+
+.player {
+	background-color: red;
+}
