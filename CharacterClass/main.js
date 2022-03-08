@@ -23,6 +23,7 @@ class Char {
 let char1 = new Char("Kadam", "Ok", "Problem?", 0);
 
 const h2El = document.createElement("h2");
-h2El.innerText += "P1: " + char1.speak(1);
-h2El.innerText += "P2: " + char1.speak(2);
-h2El.innerText += "Level: " + char1.setLevel(2);
+h2El.innerHTML += "P1: " + char1.speak(1) + "<br>";
+h2El.innerHTML += "P2: " + char1.speak(2) + "<br>";
+h2El.innerHTML += "Level: " + char1.setLevel(2) + "<br>";
+document.body.append(h2El);
