@@ -4,6 +4,7 @@ back.src = "mountains.jpg";
 
 let snowBallArrObj = multipleBallObjectArray(prompt("How many snowballs?"));
 
+setInterval(animateFunc, 18000);
 requestAnimationFrame(animateFunc);
 function animateFunc() {
 	ctx.drawImage(back, 0, 0, cnv.width, cnv.height);
