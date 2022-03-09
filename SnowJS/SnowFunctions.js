@@ -53,7 +53,8 @@ function draw(specificBall) {
 		);
 	}
 }
-
+{
+}
 function move(specificBall) {
 	for (let i = 0; i < specificBall.length; i++) {
 		if ((specificBall[i].x >= cnv.width) | (specificBall[i].y >= cnv.height)) {
