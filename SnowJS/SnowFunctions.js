@@ -49,7 +49,7 @@ function draw(specificBall) {
 			0,
 			2 * Math.PI,
 			"fill",
-			"white"
+			randomColour()
 		);
 	}
 }

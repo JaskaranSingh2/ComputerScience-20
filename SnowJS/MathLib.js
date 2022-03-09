@@ -11,3 +11,12 @@ function randomRGB() {
 	let b = randomInt(0, 256);
 	return `rgb(${r}, ${g}, ${b}`;
 }
+
+function randomColour() {
+	let flip = randomInt(0, 2);
+	if (flip == 0) {
+		return "rgb(128, 191, 230)";
+	} else {
+		return "white";
+	}
+}
