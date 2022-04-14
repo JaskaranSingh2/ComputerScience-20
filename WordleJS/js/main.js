@@ -16,9 +16,20 @@ function boardInit() {
 			let letterDivision = document.createElement("div");
 			letterDivision.id = row.toString() + "-" + letter.toString();
 			letterDivision.classList.add("letter");
-			letterDivision.innerText = "P";
 			boardContainer.appendChild(letterDivision);
 		}
 	}
 }
 window.onload = boardInit();
+
+document.addEventListener("keypress", recordInput);
+str = "";
+
+function recordInput(e) {
+	if (str.length < 5) {
+		str += e.key;
+		for (let i = 0; i < str.length; i++) {
+			letterDivision.innerText += str[i];
+		}
+	}
+}
