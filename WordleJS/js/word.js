@@ -9,6 +9,7 @@ let words = [
 	"Royle",
 ];
 
-function getRandomWord() {
-	return words[Math.floor(Math.random() * words.length)];
+function chooser() {
+	let instance = words[Math.floor(Math.random() * words.length)];
+	return (wordArray = instance.split(""));
 }
