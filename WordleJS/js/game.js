@@ -20,7 +20,6 @@ function processor(e) {
 		if (e.code == "Backspace" && letterIndex > 0) {
 			console.log(letterIndex);
 			backspace(currentLetter);
-			console.log(currentLetter);
 		} else if (
 			letterIndex < width &&
 			nextLetter.innerHTML == "" &&
@@ -62,7 +61,6 @@ function search(word, rowNumber) {
 	for (let j in wordArr) {
 		for (let k in thisGame) {
 			if (wordArr[j] == thisGame[k]) {
-				console.log(`${wordArr[j]} is in the word`);
 				if (j == k) {
 					document.getElementById(
 						rowNumber.toString() + "-" + j.toString()
@@ -80,7 +78,6 @@ function search(word, rowNumber) {
 				document.getElementById(
 					rowNumber.toString() + "-" + j.toString()
 				).style.backgroundColor = "grey";
-				console.log(`${wordArr[j]} is not in the word`);
 			}
 		}
 	}
