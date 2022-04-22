@@ -1,10 +1,10 @@
 thisGame = chooser();
 console.log(thisGame);
 
-let word = "";
 document.addEventListener("keydown", processor);
 
 function processor(e) {
+	let word = "";
 	let input = e.keyCode;
 	let key = e.key;
 	// Output results
@@ -57,27 +57,23 @@ function backspace(pos) {
 
 function search(word, rowNumber) {
 	wordArr = word.split("");
-
-	for (let j in wordArr) {
-		for (let k in thisGame) {
-			if (wordArr[j] == thisGame[k]) {
-				if (j == k) {
-					document.getElementById(
-						rowNumber.toString() + "-" + j.toString()
-					).style.backgroundColor = "green";
-					console.log(
-						document.getElementById(rowNumber.toString() + "-" + j.toString())
-					);
+	count = 0;
+	for (j in wordArr) {
+		for (k in thisGame) {
+			id = rowNumber.toString() + "-" + j.toString();
+			if (j < 5) {
+				if (wordArr[j] == thisGame[k]) {
+					if (j == k) {
+						document.getElementById(id).style.backgroundColor = "green";
+						console.log(document.getElementById(id));
+					} else {
+						document.getElementById(id).style.backgroundColor = "yellow";
+					}
+					j++;
 				} else {
-					document.getElementById(
-						rowNumber.toString() + "-" + j.toString()
-					).style.backgroundColor = "yellow";
+					console.log(id);
+					document.getElementById(id).style.backgroundColor = "grey";
 				}
-				j++;
-			} else {
-				document.getElementById(
-					rowNumber.toString() + "-" + j.toString()
-				).style.backgroundColor = "grey";
 			}
 		}
 	}

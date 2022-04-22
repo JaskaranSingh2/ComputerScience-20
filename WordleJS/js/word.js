@@ -7,6 +7,7 @@ let words = [
 	"Scott",
 	"Brown",
 	"Royle",
+	"Motor",
 ];
 
 function chooser() {
