@@ -56,26 +56,18 @@ function backspace(pos) {
 }
 
 function search(word, rowNumber) {
-	let checkList = [];
 	wordArr = word.split("");
+	count = 0;
 	for (j in wordArr) {
 		for (k in thisGame) {
 			id = rowNumber.toString() + "-" + j.toString();
 			if (j < 5) {
 				if (wordArr[j] == thisGame[k]) {
-					checkList += wordArr[j];
-					if (
-						checkList.count(wordArr[j]) > 1 &&
-						thisGame.count(wordArr[j]) == 1
-					) {
-						document.getElementById(id).style.backgroundColor = "grey";
+					if (j == k) {
+						document.getElementById(id).style.backgroundColor = "green";
+						console.log(document.getElementById(id));
 					} else {
-						if (j == k) {
-							document.getElementById(id).style.backgroundColor = "green";
-							console.log(document.getElementById(id));
-						} else {
-							document.getElementById(id).style.backgroundColor = "yellow";
-						}
+						document.getElementById(id).style.backgroundColor = "yellow";
 					}
 					j++;
 				} else {
