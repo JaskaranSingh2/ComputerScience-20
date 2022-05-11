@@ -26,7 +26,7 @@ function processor(e) {
 			e.code != "Backspace" &&
 			e.code != "Enter"
 		) {
-			nextLetter.innerHTML = key;
+			nextLetter.innerHTML = key.toUpperCase();
 			letterIndex++;
 		} else if (e.code == "Enter" && letterIndex == width) {
 			for (let i = 0; i < width; i++) {

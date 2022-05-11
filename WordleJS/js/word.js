@@ -1,13 +1,13 @@
 let words = [
-	"Kohli",
-	"Singh",
-	"Dhoni",
-	"Raina",
-	"Kumar",
-	"Scott",
-	"Brown",
-	"Royle",
-	"Motor",
+	"KOHLI",
+	"SINGH",
+	"DHONI",
+	"RAINA",
+	"KUMAR",
+	"SCOTT",
+	"BROWN",
+	"ROYLE",
+	"MOTOR",
 ];
 
 function chooser() {
