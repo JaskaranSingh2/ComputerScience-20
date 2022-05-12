@@ -1,4 +1,14 @@
 // DEFINE YOUR FUNCTIONS HERE BASED ON THE PROVIDED CRITERIA
+function includes(item, arr) {
+	let found = false
+	for (i of arr) {
+		if (i == item) {
+			found = true
+		}
+	}
+	return found;
+}
+
 function indexOf(item, arr) {
 	let position = -1
 	for (let i = 0; i < arr.length; i++) {
