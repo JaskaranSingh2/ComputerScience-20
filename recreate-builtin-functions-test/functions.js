@@ -1,5 +1,21 @@
 // DEFINE YOUR FUNCTIONS HERE BASED ON THE PROVIDED CRITERIA
+function indexOf(item, arr) {
+	let position = -1
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] == item) {
+			position = i
+		}
+	}
+	return position
+}
 
+function reverse(arr) {
+	result = []
+	for (let i = 0; i < arr.length; i++) {
+		result.push(arr[arr.length - 1 - i]);
+	}
+	return result;
+}
 function concat(a, b) {
 	for (let i = 0; i < b.length; i++) {
 		a.push(b[i]);
