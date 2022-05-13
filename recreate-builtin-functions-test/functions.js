@@ -1,31 +1,32 @@
 // DEFINE YOUR FUNCTIONS HERE BASED ON THE PROVIDED CRITERIA
 function includes(item, arr) {
-	let found = false
-	for (i of arr) {
-		if (i == item) {
-			found = true
+	let found = false;
+	for (elem of arr) {
+		if (elem == item) {
+			found = true;
 		}
 	}
 	return found;
 }
 
 function indexOf(item, arr) {
-	let position = -1
+	let position = -1;
 	for (let i = 0; i < arr.length; i++) {
 		if (arr[i] == item) {
-			position = i
+			position = i;
 		}
 	}
-	return position
+	return position;
 }
 
 function reverse(arr) {
-	result = []
+	result = [];
 	for (let i = 0; i < arr.length; i++) {
 		result.push(arr[arr.length - 1 - i]);
 	}
 	return result;
 }
+
 function concat(a, b) {
 	for (let i = 0; i < b.length; i++) {
 		a.push(b[i]);
