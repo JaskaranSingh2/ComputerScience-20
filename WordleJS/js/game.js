@@ -56,8 +56,7 @@ function backspace(pos) {
 }
 
 function search(word, rowNumber) {
-	wordArr = word.split("");
-	count = 0;
+	let wordArr = word.split("");
 	for (j in wordArr) {
 		for (k in thisGame) {
 			id = rowNumber.toString() + "-" + j.toString();
