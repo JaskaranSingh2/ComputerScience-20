@@ -1,5 +1,5 @@
 thisGame = chooser();
-thisGameInitState = thisGame;
+thisGameInitState = thisGame.slice();
 console.log(thisGame);
 
 document.addEventListener("keydown", processor);
@@ -43,10 +43,10 @@ function processor(e) {
 					).style.backgroundColor = "green";
 				}
 			} else {
+				thisGame = thisGameInitState;
 				search(word, rowNumber);
 				rowNumber++;
 				letterIndex = 0;
-				thisGame = thisGameInitState;
 			}
 		}
 	}
