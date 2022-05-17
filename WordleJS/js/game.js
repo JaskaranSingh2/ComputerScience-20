@@ -1,4 +1,5 @@
 thisGame = chooser();
+thisGameInitState = thisGame;
 console.log(thisGame);
 
 document.addEventListener("keydown", processor);
@@ -45,6 +46,7 @@ function processor(e) {
 				search(word, rowNumber);
 				rowNumber++;
 				letterIndex = 0;
+				thisGame = thisGameInitState;
 			}
 		}
 	}
@@ -54,26 +56,47 @@ function backspace(pos) {
 	pos.innerHTML = "";
 	letterIndex--;
 }
-
+// check if it is in the word
+// if it is, check if the guess[index] is equal to word[index]
+// if it isn't then shade yellow
 function search(word, rowNumber) {
 	let wordArr = word.split("");
-	for (j in wordArr) {
-		for (k in thisGame) {
-			id = rowNumber.toString() + "-" + j.toString();
-			if (j < 5) {
-				if (wordArr[j] == thisGame[k]) {
-					if (j == k) {
-						document.getElementById(id).style.backgroundColor = "green";
-						console.log(document.getElementById(id));
-					} else {
-						document.getElementById(id).style.backgroundColor = "yellow";
-					}
-					j++;
-				} else {
-					console.log(id);
-					document.getElementById(id).style.backgroundColor = "grey";
-				}
+	for (let i = 0; i < 5; i++) {
+		id = document.getElementById(rowNumber.toString() + "-" + i.toString());
+		indexOfReturn = thisGame.indexOf(wordArr[i]);
+		if (indexOfReturn == -1) {
+			id.style.backgroundColor = "grey";
+		} else {
+			if (wordArr[i] === thisGame[i]) {
+				console.log("WordArr" + wordArr[i]);
+				console.log("thisGame" + thisGame[i]);
+				id.style.backgroundColor = "green";
+				console.log(id);
+			} else {
+				console.log("WordArr" + wordArr[i]);
+				console.log("thisGame" + thisGame[i]);
+				id.style.backgroundColor = "yellow";
 			}
+			thisGame[indexOfReturn] = "#";
 		}
 	}
+	// for (j in wordArr) {
+	// 	for (k in thisGame) {
+	// 		id = rowNumber.toString() + "-" + j.toString();
+	// 		if (j < 5) {
+	// 			if (wordArr[j] == thisGame[k]) {
+	// 				if (j == k) {
+	// 					document.getElementById(id).style.backgroundColor = "green";
+	// 					console.log(document.getElementById(id));
+	// 				} else {
+	// 					document.getElementById(id).style.backgroundColor = "yellow";
+	// 				}
+	// 				j++;
+	// 			} else {
+	// 				console.log(id);
+	// 				document.getElementById(id).style.backgroundColor = "grey";
+	// 			}
+	// 		}
+	// 	}
+	// }
 }
