@@ -43,7 +43,6 @@ function processor(e) {
 					).style.backgroundColor = "green";
 				}
 			} else {
-				thisGame = thisGameInitState;
 				search(word, rowNumber);
 				rowNumber++;
 				letterIndex = 0;
@@ -60,24 +59,27 @@ function backspace(pos) {
 // if it is, check if the guess[index] is equal to word[index]
 // if it isn't then shade yellow
 function search(word, rowNumber) {
+	thisGame = thisGameInitState;
 	let wordArr = word.split("");
 	for (let i = 0; i < 5; i++) {
 		id = document.getElementById(rowNumber.toString() + "-" + i.toString());
 		indexOfReturn = thisGame.indexOf(wordArr[i]);
-		if (indexOfReturn == -1) {
+		if (indexOfReturn === -1) {
 			id.style.backgroundColor = "grey";
 		} else {
 			if (wordArr[i] === thisGame[i]) {
-				console.log("WordArr" + wordArr[i]);
-				console.log("thisGame" + thisGame[i]);
+				console.log("WordArr " + wordArr[i]);
+				console.log("thisGame " + thisGame[i]);
 				id.style.backgroundColor = "green";
 				console.log(id);
 			} else {
-				console.log("WordArr" + wordArr[i]);
-				console.log("thisGame" + thisGame[i]);
+				console.log("WordArr " + wordArr[i]);
+				console.log("thisGame " + thisGame[i]);
 				id.style.backgroundColor = "yellow";
+				console.log(id);
 			}
 			thisGame[indexOfReturn] = "#";
+			console.log(thisGame);
 		}
 	}
 	// for (j in wordArr) {
