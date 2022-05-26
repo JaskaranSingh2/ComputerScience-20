@@ -1,16 +1,13 @@
 thisGame = chooser();
-thisGameInitState = thisGame.slice();
-console.log(thisGame);
 
 document.addEventListener("keydown", processor);
 
 function processor(e) {
-	let word = "";
 	let input = e.keyCode;
 	let key = e.key;
 	// Output results
 	out = document.getElementById("out");
-	if (gameLost) return;
+	if (gameOver) return;
 	if ((input >= 65 && input <= 90) || input == 8 || input == 13) {
 		let nextLetter = document.getElementById(
 			rowNumber.toString() + "-" + letterIndex.toString()
@@ -30,23 +27,9 @@ function processor(e) {
 			nextLetter.innerHTML = key.toUpperCase();
 			letterIndex++;
 		} else if (e.code == "Enter" && letterIndex == width) {
-			for (let i = 0; i < width; i++) {
-				word += document.getElementById(
-					rowNumber.toString() + "-" + i.toString()
-				).innerHTML;
-			}
-			if (word == thisGame.join("")) {
-				out.innerHTML = "You Win!";
-				for (let i = 0; i < 5; i++) {
-					document.getElementById(
-						rowNumber.toString() + "-" + i.toString()
-					).style.backgroundColor = "green";
-				}
-			} else {
-				search(word, rowNumber);
-				rowNumber++;
-				letterIndex = 0;
-			}
+			search();
+			rowNumber++;
+			letterIndex = 0; // set it back to zero for every check
 		}
 	}
 }
@@ -55,50 +38,38 @@ function backspace(pos) {
 	pos.innerHTML = "";
 	letterIndex--;
 }
-// check if it is in the word
-// if it is, check if the guess[index] is equal to word[index]
-// if it isn't then shade yellow
-function search(word, rowNumber) {
-	thisGame = thisGameInitState;
-	let wordArr = word.split("");
-	for (let i = 0; i < 5; i++) {
-		id = document.getElementById(rowNumber.toString() + "-" + i.toString());
-		indexOfReturn = thisGame.indexOf(wordArr[i]);
-		if (indexOfReturn === -1) {
-			id.style.backgroundColor = "grey";
+
+function search() {
+	let correct = 0;
+	let letterCount = {}; // {a: 1, b: 3, c: 5}
+	for (let i = 0; i < thisGame.length; i++) {
+		letterKey = thisGame[i];
+		if (letterCount.letterKey) {
+			// if it exists, add 1 to the count
+			letterCount.letterKey += 1;
 		} else {
-			if (wordArr[i] === thisGame[i]) {
-				console.log("WordArr " + wordArr[i]);
-				console.log("thisGame " + thisGame[i]);
-				id.style.backgroundColor = "green";
-				console.log(id);
-			} else {
-				console.log("WordArr " + wordArr[i]);
-				console.log("thisGame " + thisGame[i]);
-				id.style.backgroundColor = "yellow";
-				console.log(id);
-			}
-			thisGame[indexOfReturn] = "#";
-			console.log(thisGame);
+			/* if it isn't in the object, 
+			add it by setting the keyCount for the letter equal to 1
+			*/
+			letterCount.letterKey = 1;
 		}
 	}
-	// for (j in wordArr) {
-	// 	for (k in thisGame) {
-	// 		id = rowNumber.toString() + "-" + j.toString();
-	// 		if (j < 5) {
-	// 			if (wordArr[j] == thisGame[k]) {
-	// 				if (j == k) {
-	// 					document.getElementById(id).style.backgroundColor = "green";
-	// 					console.log(document.getElementById(id));
-	// 				} else {
-	// 					document.getElementById(id).style.backgroundColor = "yellow";
-	// 				}
-	// 				j++;
-	// 			} else {
-	// 				console.log(id);
-	// 				document.getElementById(id).style.backgroundColor = "grey";
-	// 			}
-	// 		}
-	// 	}
-	// }
+	console.log(letterCount);
+
+	// First check: check all the letters that are correct
+	for (let i = 0; i < width; i++) {
+		tileChecked = document.getElementById(
+			rowNumber.toString() + "-" + i.toString()
+		);
+		char = tileChecked.innerHTML;
+		if (thisGame[i] == char) {
+			tileChecked.classList.add("correctPlace");
+			correct++;
+			letterCount.char--; // removes those letters that have already been checked for in the count
+		}
+		if (correct == 5) {
+			out.innerHTML = "You Win!";
+			gameOver = true;
+		}
+	}
 }

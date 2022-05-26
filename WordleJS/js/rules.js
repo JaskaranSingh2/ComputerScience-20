@@ -1,4 +1,4 @@
-let gameLost = false;
+let gameOver = false;
 
 const width = 5;
 const height = 6;
