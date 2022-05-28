@@ -39,12 +39,12 @@ body {
 	color: white;
 }
 
-.exists {
+.exist {
 	background-color: #c9b458;
 	color: white;
 }
 
-.DNE {
+.non-existent {
 	background-color: #787c7e;
 	color: white;
 }
@@ -52,4 +52,5 @@ body {
 button {
 	margin-right: 10px;
 	margin-top: 20px;
+	border-radius: 10px;
 }
