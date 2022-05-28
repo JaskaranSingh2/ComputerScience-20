@@ -6,7 +6,6 @@ function processor(e) {
 	let word = "";
 	let input = e.keyCode;
 	let key = e.key;
-	console.log(word);
 	// Output results
 	out = document.getElementById("out");
 	if (gameOver) return;
@@ -54,8 +53,6 @@ function processor(e) {
 function backspace(pos) {
 	pos.innerHTML = "";
 	letterIndex--;
-	word.pop(-1);
-	console.log(word);
 }
 
 function search() {
@@ -87,20 +84,9 @@ function search() {
 			correct++;
 			letterCount[char] -= 1; // removes those letters that have already been checked for in the count
 		}
-
-		for (let i = 0; i < width; i++) {
-			tileChecked = document.getElementById(
-				rowNumber.toString() + "-" + i.toString()
-			);
-			char = tileChecked.innerHTML;
-			if (!tileChecked.classList.contains("correctPlace")) {
-				if (thisGame.includes(char) && letterCount[char] > 0) {
-					tileChecked.classList.add("exists");
-					letterCount[char]--;
-				} else {
-					tileChecked.classList.add("non-existent");
-				}
-			}
+		if (correct == 5) {
+			out.innerHTML = "You Win!";
+			gameOver = true;
 		}
 	}
 	for (let j = 0; j < width; j++) {
