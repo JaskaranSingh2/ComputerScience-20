@@ -1,21 +1,6 @@
-// let words = [
-// 	"KOHLI",
-// 	"SINGH",
-// 	"DHONI",
-// 	"RAINA",
-// 	"KUMAR",
-// 	"SCOTT",
-// 	"BROWN",
-// 	"ROYLE",
-// 	"MOTOR",
-// ];
-
+let words = list.toUpperCase().split("\n");
+// everytime it encounters whatever is in the params, it will split whatever is before that thing in the params
 function chooser() {
-	list = list.replace("\n", " ");
-	console.log(list);
-	let sortedWordList = list.split(" ");
-	console.log(sortedWordList);
-	let instance =
-		sortedWordList[Math.floor(Math.random() * sortedWordList.length)];
+	let instance = words[Math.floor(Math.random() * words.length)];
 	return (wordArray = instance.split(""));
 }

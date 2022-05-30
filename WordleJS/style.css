@@ -7,8 +7,8 @@
 	flex-wrap: wrap;
 }
 .dark-mode-class {
-	background-color: rgb(18, 18, 19);
-	color: white;
+	animation: fadein 2s;
+	animation-fill-mode: forwards;
 }
 .letter {
 	border: 2px solid rgb(58, 58, 60, 0.5);
@@ -31,7 +31,8 @@
 body {
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
-	color: black;
+	animation: fadeout 2s;
+	animation-fill-mode: forwards;
 }
 
 .correctPlace {
@@ -53,4 +54,22 @@ button {
 	margin-right: 10px;
 	margin-top: 20px;
 	border-radius: 10px;
+}
+
+@keyframes fadein {
+	from {
+	}
+	to {
+		background-color: white;
+		color: black;
+	}
+}
+
+@keyframes fadeout {
+	from {
+	}
+	to {
+		background-color: rgb(18, 18, 19);
+		color: white;
+	}
 }

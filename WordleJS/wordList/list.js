@@ -1,5 +1,4 @@
-let list = `
-women
+let list = `women
 nikau
 swack
 feens
