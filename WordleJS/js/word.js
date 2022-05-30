@@ -11,7 +11,7 @@
 // ];
 
 function chooser() {
-	list = list.replace("\n", "");
+	list = list.replace("\n", " ");
 	console.log(list);
 	let sortedWordList = list.split(" ");
 	console.log(sortedWordList);
