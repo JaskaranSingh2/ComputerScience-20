@@ -6,13 +6,24 @@
 	display: flex;
 	flex-wrap: wrap;
 }
+
+#line {
+	border-bottom: 1px solid;
+	width: 360px;
+}
+
 .dark-mode-class {
-	animation: fadein 2s;
+	animation: fadein 0.5s;
 	animation-fill-mode: forwards;
 }
+
+.light-mode-class {
+	animation: fadeout 0.5s;
+	animation-fill-mode: forwards;
+}
+
 .letter {
 	border: 2px solid rgb(58, 58, 60, 0.5);
-
 	width: 60px;
 	height: 60px;
 	margin: 2.5px;
@@ -31,8 +42,8 @@
 body {
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
-	animation: fadeout 2s;
-	animation-fill-mode: forwards;
+	background-color: rgb(18, 18, 19);
+	color: white;
 }
 
 .correctPlace {
@@ -58,18 +69,26 @@ button {
 
 @keyframes fadein {
 	from {
+		background-color: rgb(18, 18, 19);
+		color: white;
+		border-color: white;
 	}
 	to {
 		background-color: white;
 		color: black;
+		border-color: black;
 	}
 }
 
 @keyframes fadeout {
 	from {
+		background-color: white;
+		color: black;
+		border-color: black;
 	}
 	to {
 		background-color: rgb(18, 18, 19);
 		color: white;
+		border-color: white;
 	}
 }
