@@ -1,5 +1,5 @@
 thisGame = chooser();
-
+lost = thisGame.join("");
 document.addEventListener("keydown", processor);
 
 function processor(e) {
@@ -42,6 +42,10 @@ function processor(e) {
 				letterIndex = 0;
 				alert("Not found in the dictionary!");
 			} else {
+				if (rowNumber == 5) {
+					gameOver = true;
+					alert("You Lose! The word was: " + lost);
+				}
 				search();
 				rowNumber++;
 				letterIndex = 0; // set it back to zero for every check
