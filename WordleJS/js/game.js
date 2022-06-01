@@ -1,3 +1,6 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 thisGame = chooser();
 lost = thisGame.join("");
 document.addEventListener("keydown", processor);
@@ -40,7 +43,20 @@ function processor(e) {
 					).innerHTML = "";
 				}
 				letterIndex = 0;
-				alert("Not found in the dictionary!");
+				function toast() {
+					useEffect(() => {
+						toast.success("Not found in the dictionary!");
+					}, []);
+
+					return (
+						<div className="handler">
+							<div id="container">
+								<ToastContainer />
+							</div>
+						</div>
+					);
+				}
+				// alert("Not found in the dictionary!");
 			} else {
 				if (rowNumber == 5) {
 					gameOver = true;
