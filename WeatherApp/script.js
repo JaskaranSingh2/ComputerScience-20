@@ -29,12 +29,12 @@ window.onload = () => {
 
 function cityHandler() {
 	let cityName = cityIn.value;
-	const key = "2c88e700955f6362d510e3050fc9725d";
+	const myKey = config.key;
 	fetch(
 		"https://api.openweathermap.org/data/2.5/weather?q=" +
 			cityName +
 			"&units=metric&appid=" +
-			key
+			myKey
 	)
 		.then((data) => data.json())
 		.then((data) => {
