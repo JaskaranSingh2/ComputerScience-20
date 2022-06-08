@@ -14,16 +14,17 @@ for question, answer in dictQuiz.items():
     print(question)
     guess = input(f"Q{qNumber} Answer: ")
     if isinstance(answer, list):
+        countLen = 1
         for answers in answer:
-            if guess.lower() != answers.lower():
-                pass
-            elif guess.lower() == answers.lower():
+            if guess.lower() == answers.lower():
                 print("Correct!")
                 print("")
                 answerCorrect += 1
-            else:
+                break
+            elif countLen == len(answer):
                 print("Incorrect!")
                 print("")
+            countLen += 1
         qNumber += 1
     elif isinstance(answer, str):   
         if guess.lower() == answer.lower():
@@ -41,5 +42,4 @@ if answerCorrect / len(dictQuiz) >= 0.75:
 else:
     print("You're trash!")
 
-print(f"You got {answerCorrect} out of {len(dictQuiz)} correct!")
 print(f"{answerCorrect} / {len(dictQuiz)} ({int(round(answerCorrect/len(dictQuiz) * 100))}%)")
