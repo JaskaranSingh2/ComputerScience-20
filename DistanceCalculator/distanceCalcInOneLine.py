@@ -1,0 +1,1 @@
+print("Distance between points:", (((int(input("x2 ")) - int(input("x1 "))) ** 2) + ((int(input("y2 ") - int(input("y1 "))) ** 2)) ** 0.5))
