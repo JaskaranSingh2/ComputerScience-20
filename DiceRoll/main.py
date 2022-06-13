@@ -17,7 +17,7 @@ while True:
 
     if int(userIn) == 3:
         n = int(input("How many times do you want to roll the dice? "))
-        for i in range(n+1):
+        for i in range(n):
             one = randint(1,6)
             two = randint(1,6)
             print(one, two, f"(sum: {one + two})" )
